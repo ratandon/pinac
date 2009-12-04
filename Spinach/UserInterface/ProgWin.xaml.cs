@@ -113,7 +113,7 @@ namespace Spinach
             InitializeComponent();
             et = e;
             err.ProgWinError += new ErrorNotification(ShowError);
-            plot.image += new PlotReceiver.BmpImage(EnablePlot);
+           // plot.image += new PlotReceiver.BmpImage(EnablePlot);
             Controller = new executor();
             Controller.resEvent += new executor.result(Display);
             keywords = Controller.frontEnd.getKeywords();
@@ -1012,8 +1012,8 @@ namespace Spinach
         {
             if (isplotReady == 1)
             {
-                ProgPlot frmPlot = new ProgPlot(plotpath, PlotVals, plot);
-                frmPlot.ShowDialog();
+              //  ProgPlot frmPlot = new ProgPlot(plotpath, PlotVals, plot);
+              //  frmPlot.ShowDialog();
             }
             else
                 System.Windows.MessageBox.Show("No Plot");

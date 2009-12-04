@@ -40,8 +40,10 @@ namespace Spinach
         private ImageSource Img;
         private Image img;
         private BitmapImage bmpSource = null;
+       
         public ProgPlot(string path, List<double> Vals, PlotReceiver p)
         {
+            /*
             InitializeComponent();
             plot = p;
             plot.newimage += new PlotReceiver.BmpImage(plot_newimage);
@@ -72,7 +74,7 @@ namespace Spinach
                     imgPlot.Margin.Bottom.Equals(10);
 
                 }
-            }
+            }*/
         }
 
         void plot_newimage(PngBitmapEncoder encoder, List<double> Vals)
@@ -177,12 +179,12 @@ namespace Spinach
             PlotVals.Add(Convert.ToDouble(txtRotAxisX.Text));
             PlotVals.Add(Convert.ToDouble(txtRotAxisY.Text));
             PlotVals.Add(Convert.ToDouble(txtRotAxisZ.Text));
-            plot.changecam(PlotVals);
+           // plot.changecam(PlotVals);
         }
 
         private void frmPlot_Closed(object sender, EventArgs e)
         {
-            plot.clearstuff();
+            //plot.clearstuff();
             //Img = null;
             //imgPlot.Source = null;
             //imgPlot = null;

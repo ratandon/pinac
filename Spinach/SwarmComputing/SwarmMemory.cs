@@ -34,7 +34,7 @@ namespace Spinach
         public event GetFinalResult FinalResult;
         public delegate void BroadcastErrorResult(string num, string error);
         public event BroadcastErrorResult ErrorResult;
-
+        
         public delegate void CloseProgram(bool CloseProg);
         public event CloseProgram CloseP;
         public delegate void RerunProgram(bool Rerun);
@@ -958,6 +958,11 @@ namespace Spinach
                 Thread.Sleep(5);
             }
            
+        }
+
+        public void BroadcastError(string ErrMsg)
+        {
+            throw new NotImplementedException();
         }
     }
     

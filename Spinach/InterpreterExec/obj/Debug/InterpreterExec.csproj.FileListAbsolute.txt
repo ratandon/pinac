@@ -1,1 +1,5 @@
+C:\Users\Rajika\Desktop\pinac\pinac\Spinach\SPINACH_DLLS\InterpreterExec.dll
+C:\Users\Rajika\Desktop\pinac\pinac\Spinach\SPINACH_DLLS\InterpreterExec.pdb
 C:\Users\Rajika\Desktop\pinac\pinac\Spinach\InterpreterExec\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Rajika\Desktop\pinac\pinac\Spinach\InterpreterExec\obj\Debug\InterpreterExec.dll
+C:\Users\Rajika\Desktop\pinac\pinac\Spinach\InterpreterExec\obj\Debug\InterpreterExec.pdb
