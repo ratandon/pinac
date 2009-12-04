@@ -90,7 +90,7 @@ namespace Spinach
         public void SetSwarmMemoryObject(SwarmMemory s)
         {
             SM = s;
-            //SM.ErrorResult+=new SwarmMemory.BrdErrorResult(ShowMsg);
+            SM.ErrorResult+=new SwarmMemory.BrdErrorResult(ShowMsg);
         }
 
         public void ShowMsg(string ErrMsg)

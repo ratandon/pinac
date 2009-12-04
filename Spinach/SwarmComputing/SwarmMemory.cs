@@ -32,9 +32,9 @@ namespace Spinach
         public event getResults parallelresult_;
         public delegate void GetFinalResult(string FinRes);
         public event GetFinalResult FinalResult;
-        public delegate void BroadcastErrorResult(string num, string error);
-        public event BroadcastErrorResult ErrorResult;
-        
+        public delegate void BrdErrorResult(string error);
+        public event BrdErrorResult ErrorResult;
+
         public delegate void CloseProgram(bool CloseProg);
         public event CloseProgram CloseP;
         public delegate void RerunProgram(bool Rerun);
@@ -113,9 +113,10 @@ namespace Spinach
         }
         public void BroadcastResult(string result)
         {
+         
             if (permissions.Count > 1)
             {
-                string xml = "<FinalResult>" + "<Pid>" + Pid + "</Pid>" + "<Result>" + result + "</Result>" + "</Finalresult>";
+                string xml = "<FinalResult>" + "<Pid>" + Pid + "</Pid>" + "<Result>" + result + "</Result>" + "</FinalResult>";
                 AsynchronousSocketListener msocket = conn.getSocket();
                 string myIP = msocket.GetIP();
                 string myPort = msocket.GetPort();
@@ -137,6 +138,14 @@ namespace Spinach
                 t.IsBackground = true;
                 t.Start();
             }
+            
+            //    catch(Exception e)
+            //{
+            //    Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            //    Console.WriteLine(e.ToString());
+            //    Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
+            //}
         }
 
         public void getFinalResult(string result)
@@ -144,11 +153,11 @@ namespace Spinach
             if (FinalResult != null)
                 FinalResult(result);
         }
-        public void BroadcastError(string num,string error)
+        public void BroadcastError(string error)
         {
-            if (permissions.Count > 1)
+            if (permissions.Count > 0)
             {
-                string xml = "<ComError>" + "<Pid>" + Pid + "</Pid>" + "<ErrorNum>" + num + "</ErrorNum>" + "<ErrorDetail>" + error + "</ErrorDetail>" + "</ComError>";
+                string xml = "<ComError>" + "<Pid>" + Pid + "</Pid>" + "<ErrorDetail>" + error + "</ErrorDetail>" + "</ComError>";
                 AsynchronousSocketListener msocket = conn.getSocket();
                 string myIP = msocket.GetIP();
                 string myPort = msocket.GetPort();
@@ -171,10 +180,10 @@ namespace Spinach
                 t.Start();
             }
         }
-        public void GetError(string num, string error)
+        public void GetError(string error)
         {
             if (ErrorResult != null)
-                ErrorResult(num, error);
+                ErrorResult(error);
             
         }
         public void programClosed()
@@ -958,11 +967,6 @@ namespace Spinach
                 Thread.Sleep(5);
             }
            
-        }
-
-        public void BroadcastError(string ErrMsg)
-        {
-            throw new NotImplementedException();
         }
     }
     
